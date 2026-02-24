@@ -17,6 +17,8 @@ const BookInfo = ({ books, addToCart, cart }) => {
     return cart.find(book => book.id === +id);
    }
 
+
+  if (!book) {
    return (
      <div id="books__body">
         <main id="books__main">
@@ -81,6 +83,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
         </main>
      </div>
     )
+  }
 }
 
 export default BookInfo;
