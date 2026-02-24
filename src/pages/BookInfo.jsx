@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react'
 import Rating from '../components/ui/Rating';
 import Price from '../components/ui/Price';
-import { Link, useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useParams } from 'react-router-dom';
 import Book from '../components/ui/Book';
 
 const BookInfo = ({ books, addToCart, cart }) => {
@@ -76,7 +76,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
                 <div className="books">
                 {
                   books
-                  .filter(book => book.rating ===5 && +book.id !== +id)
+                  .filter(book => book.rating === 5 && +book.id !== +id)
                   .slice(0, 4)
                   .map(book => <Book book={book} key={book.id} />)
                 }
