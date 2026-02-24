@@ -19,6 +19,9 @@ const BookInfo = ({ books, addToCart, cart }) => {
 
 
   if (!book) {
+    return <div className="container">Loading...</div>
+  }
+
    return (
      <div id="books__body">
         <main id="books__main">
@@ -34,7 +37,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
                     </div>
                     <div className="book__selected">
                       <figure className="book__selected--figure">
-                        <img src={book.url} alt="" className="book__selected--img" />
+                        <img src={book.url} alt={book.title} className="book__selected--img" />
                       </figure>
                     <div className="book__selected--description">
                       <h2 className="book__selected--title">{book.title}</h2>
@@ -52,7 +55,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
                           </p>
                       </div>
                       {bookExistsOnCart() ? (
-                      <Link to={`./cart`} className="book__link">
+                      <Link to={"./cart"} className="book__link">
                       <button className="btn">Checkout</button>
                       </Link>) :
                       (<button className="btn" onClick={() => addBookToCart(book)}>
@@ -83,7 +86,6 @@ const BookInfo = ({ books, addToCart, cart }) => {
         </main>
      </div>
     )
-  }
 }
 
 export default BookInfo;
